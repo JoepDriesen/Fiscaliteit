@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html >
+    <head>
+        <meta charset="UTF-8">
+        
+        <title>Responsive Contact Form with Map</title>
+        
+        <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/superhero/bootstrap.min.css" rel="stylesheet" integrity="sha384-Xqcy5ttufkC3rBa8EdiAyA1VgOGrmel2Y+wxm4K3kI3fcjTWlDWrlnxyD6hOi3PF" crossorigin="anonymous">
+        <link href="css/style.css" rel="stylesheet">
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="js/ui.js" type="application/javascript"></script>
+        <script src="js/data.js" type="application/javascript"></script>
+        <script src="js/simulator.js" type="application/javascript"></script>
+        
+    </head>
+
+    <body>
+        
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <a class="navbar-brand text-center center-block" href="#">Navbar Brand</a>
+        </div>
+    </nav>
+        
+        <div class="container">
+            
+            <div class="row">
+                
+                <div class="col-xs-12 col-sm-4">
+                    
+                    <div class="well bs-component">
+        
+                        <form id="input" class="">
+
+                            <h1 class="page-header">Input</h1>
+
+                            <fieldset>
+
+                                <legend>
+                                    <a href="#" class="btn-advanced-options" title="show/hide advanced options"><span class="glyphicon glyphicon-chevron-right"></span></a>
+                                    Woning parameters
+                                </legend>
+
+                                <div class="form-group">
+                                    <label for="aankoopprijs" class="control-label">Aankoopprijs</label>
+                                    <a href="#" class="btn-help" title="show/hide help for this value"><span class="glyphicon glyphicon-question-sign"></span></a>
+                                    <div class="input-group">
+                                        <span class="input-group-addon">€</span>
+                                        <input id="aankoopprijs" type="text" class="form-control currency">
+                                    </div>
+                                    <div class="help-text"><small id="passwordHelpBlock" class="form-text">
+                                        De kost van de woning overeengekomen met de verkoper.
+                                    </small></div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="beschrijf" class="control-label">Beschrijf</label>
+                                    <a href="#" class="btn-help" title="show/hide help for this value"><span class="glyphicon glyphicon-question-sign"></span></a>
+                                    <select id="beschrijf" class="form-control">
+                                        <option value="klein" selected="selected">Klein beschrijf</option>
+                                        <option value="groot">Groot beschrijf</option>
+                                    </select>
+                                    <div class="help-text"><small id="passwordHelpBlock" class="form-text">
+                                        Het beschrijf van de woning. Afhankelijk van meerdere parameters. Bepaald de registratierechten die betaald moeten worden op
+                                        de aankoopprijs.
+                                        <br>
+                                        Bron: <a href="http://belastingen.vlaanderen.be/klein-beschrijf">http://belastingen.vlaanderen.be/klein-beschrijf</a>
+                                    </small></div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="locatie" class="control-label">Locatie</label>
+                                    <a href="#" class="btn-help" title="show/hide help for this value"><span class="glyphicon glyphicon-question-sign"></span></a>
+                                    <select id="locatie" class="form-control">
+                                        <option value="brussel">Brussel</option>
+                                        <option value="vlaanderen" selected="selected">Vlaanderen</option>
+                                        <option value="wallonie">Wallonië</option>
+                                    </select>
+                                    <div class="help-text"><small id="passwordHelpBlock" class="form-text">
+                                        De locatie van de woning. Bepaald de registratierechten die betaald moeten worden op de aankoopprijs.
+                                        <br>
+                                        Bron: <a href="http://www.hoeveelkostmijnhuis.be/extra-kosten/aanschafkosten">http://www.hoeveelkostmijnhuis.be/extra-kosten/aanschafkosten</a>
+                                    </small></div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="enige_woning" class="control-label">Enige woning</label>
+                                    <a href="#" class="btn-help" title="show/hide help for this value"><span class="glyphicon glyphicon-question-sign"></span></a>
+                                    <select id="enige_woning" class="form-control">
+                                        <option value="true" selected="selected">Ja</option>
+                                        <option value="false">Nee</option>
+                                    </select>
+                                    <div class="help-text"><small id="passwordHelpBlock" class="form-text">
+                                        Indien het gaat over de aankoop van je eerste en enige woning, krijg je een extra korting op de registratierechten en belastingsvoordeel.
+                                        <br>
+                                        Bron:
+                                        <br>
+                                        <a href="http://belastingen.vlaanderen.be/klein-beschrijf">http://www.hoeveelkostmijnhuis.be/extra-kosten/aanschafkosten</a>
+                                        <br>
+                                        <a href="http://www.belgium.be/nl/huisvesting/kopen_en_verkopen/hypothecaire_lening/fiscale_voordelen">http://www.belgium.be/nl/huisvesting/kopen_en_verkopen/hypothecaire_lening/fiscale_voordelen</a>
+                                    </small></div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="huurwaarde" class="control-label">Huurwaarde</label>
+                                    <a href="#" class="btn-help" title="show/hide help for this value"><span class="glyphicon glyphicon-question-sign"></span></a>
+                                    <div class="input-group">
+                                        <span class="input-group-addon">€</span>
+                                        <input id="huurwaarde" type="text" class="form-control currency">
+                                    </div>
+                                    <div class="help-text"><small id="passwordHelpBlock" class="form-text">
+                                        De huurwaarde van het aangekochte huis. Nodig voor de berekening van het kadastraal inkomen en de onroerende voorheffing (belasting betaald op het eigenaar zijn van het huis).
+                                        <br>
+                                        Bron: <a href="http://www.kadaster.be/Kadaster/Berekening_van_het_kadastraal_inkomen">http://www.kadaster.be/Kadaster/Berekening_van_het_kadastraal_inkomen</a>
+                                    </small></div>
+                                </div>
+
+                                <div class="advanced-options">
+                                    
+                                    <div class="form-group">
+                                        <label for="groei_woning" class="control-label">Groei aankoopprijs</label>
+                                        <a href="#" class="btn-help" title="show/hide help for this value"><span class="glyphicon glyphicon-question-sign"></span></a>
+                                        <div class="input-group">
+                                            <input id="groei_woning" type="text" class="form-control percent" value="2">
+                                            <span class="input-group-addon">%</span>
+                                        </div>
+                                    </div>
+                                    <div class="help-text"><small id="passwordHelpBlock" class="form-text">
+                                        De verwachte groei van de vastgoedprijs van het huis tijdens de looptijd van de lening.
+                                        <br>
+                                        Bron: <a href="http://statbel.fgov.be/nl/statistieken/cijfers/economie/bouw_industrie/vastgoed/">http://statbel.fgov.be/nl/statistieken/cijfers/economie/bouw_industrie/vastgoed/</a>
+                                    </small></div>
+                                    
+                                </div>
+
+                            </fieldset>
+
+                            <fieldset>
+
+                                <legend>
+                                    <a href="#" class="btn-advanced-options" title="show/hide advanced options"><span class="glyphicon glyphicon-chevron-right"></span></a>
+                                    Lening parameters
+                                </legend>
+
+                                <div class="form-group">
+                                    <label for="interest" class="control-label">Interest</label>
+                                    <a href="#" class="btn-help" title="show/hide help for this value"><span class="glyphicon glyphicon-question-sign"></span></a>
+                                    <div class="input-group">
+                                        <input id="interest" type="text" class="form-control percent" value="2">
+                                        <span class="input-group-addon">%</span>
+                                    </div>
+                                    <div class="help-text"><small id="passwordHelpBlock" class="form-text">
+                                        De interestvoet die betaald zal worden aan de bank op het prinicipieel bedrag van de lening.
+                                    </small></div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="looptijd" class="control-label">Looptijd</label>
+                                    <a href="#" class="btn-help" title="show/hide help for this value"><span class="glyphicon glyphicon-question-sign"></span></a>
+                                    <div class="input-group">
+                                        <input id="looptijd" type="text" class="form-control" value="20">
+                                        <span class="input-group-addon">jaren</span>
+                                    </div>
+                                    <div class="help-text"><small id="passwordHelpBlock" class="form-text">
+                                        De looptijd van de lening in jaren. Ligt normaal gezien tussen de 10 en de 30 jaar.
+                                    </small></div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="eigen_inbreng" class="control-label">Eigen inbreng</label>
+                                    <a href="#" class="btn-help" title="show/hide help for this value"><span class="glyphicon glyphicon-question-sign"></span></a>
+                                    <div class="input-group">
+                                        <span class="input-group-addon">€</span>
+                                        <input id="eigen_inbreng" class="form-control currency" type="text">
+                                    </div>
+                                    <div class="help-text"><small id="passwordHelpBlock" class="form-text">
+                                        Het bedrag dat uit het eigenvermogen wordt ingebracht voor de financiering van de aankoop van het huis. Bedraagt meestal minstens 10%
+                                        van het totaal te benodigde kapitaal.
+                                    </small></div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="ssv" class="control-label">Schuldsaldoverzekering</label>
+                                    <a href="#" class="btn-help" title="show/hide help for this value"><span class="glyphicon glyphicon-question-sign"></span></a>
+                                    <div class="input-group">
+                                        <span class="input-group-addon">€</span>
+                                        <input id="ssv" class="form-control currency" type="text">
+                                    </div>
+                                    <div class="help-text"><small id="passwordHelpBlock" class="form-text">
+                                        Levensverzekering ter bescherming van de bank bij het overlijden van de lener.
+                                        <br>
+                                        Bron: <a href="http://www.hoeveelkostmijnhuis.be/extra-kosten/schuldsaldoverzekering">http://www.hoeveelkostmijnhuis.be/extra-kosten/schuldsaldoverzekering</a>
+                                    </small></div>
+                                </div>
+
+                            </fieldset>
+
+                            <fieldset>
+
+                                <legend>
+                                    <a href="#" class="btn-advanced-options" title="show/hide advanced options"><span class="glyphicon glyphicon-chevron-right"></span></a>
+                                    Fiscaliteit
+                                </legend>
+
+                                <div class="form-group">
+                                    <label for="gemeentetax" class="control-label">Gemeentelijke opcentiemen</label>
+                                    <a href="#" class="btn-help" title="show/hide help for this value"><span class="glyphicon glyphicon-question-sign"></span></a>
+                                    <div class="input-group">
+                                        <input id="gemeentetax" type="text" class="form-control percent">
+                                        <span class="input-group-addon">%</span>
+                                    </div>
+                                    <div class="help-text"><small id="passwordHelpBlock" class="form-text">
+                                        Gemeentebelasting in de gemeente waar het huis gevestigd is.
+                                        <br>
+                                        Bron: <a href="http://financien.belgium.be/nl/particulieren/belastingaangifte/gemeentebelasting">http://financien.belgium.be/nl/particulieren/belastingaangifte/gemeentebelasting</a>
+                                    </small></div>
+                                </div>
+
+                                <div class="advanced-options">
+                                    
+                                    <div class="form-group">
+                                        <label for="inflatie" class="control-label">Inflatie</label>
+                                        <a href="#" class="btn-help" title="show/hide help for this value"><span class="glyphicon glyphicon-question-sign"></span></a>
+                                        <div class="input-group">
+                                            <input id="inflatie" type="text" class="form-control percent" value="2">
+                                            <span class="input-group-addon">%</span>
+                                        </div>
+                                    </div>
+                                    <div class="help-text"><small id="passwordHelpBlock" class="form-text">
+                                        De verwachte inflatie van de euro tijdens de looptijd van de lening. Ligt historisch rond de 2%.
+                                    </small></div>
+
+                                    <div class="form-group" class="control-label">
+                                        <label for="marktgroei">Marktgroei</label>
+                                        <a href="#" class="btn-help" title="show/hide help for this value"><span class="glyphicon glyphicon-question-sign"></span></a>
+                                        <div class="input-group">
+                                            <input id="marktgroei" type="text" class="form-control percent" value="2">
+                                            <span class="input-group-addon">%</span>
+                                        </div>
+                                    </div>
+                                    <div class="help-text"><small id="passwordHelpBlock" class="form-text">
+                                        De verwachte groei van de beurs tijdens de looptijd van de lening. Ligt historisch rond de 6%.
+                                    </small></div>
+
+                                    <div class="form-group" class="control-label">
+                                        <label for="instapkosten">Instapkosten belegging</label>
+                                        <a href="#" class="btn-help" title="show/hide help for this value"><span class="glyphicon glyphicon-question-sign"></span></a>
+                                        <div class="input-group">
+                                            <input id="instapkosten" type="text" class="form-control percent" value="2">
+                                            <span class="input-group-addon">%</span>
+                                        </div>
+                                    </div>
+                                    <div class="help-text"><small id="passwordHelpBlock" class="form-text">
+                                        De instapkosten bij het aankopen van aandelen.
+                                    </small></div>
+
+                                    <div class="form-group" class="control-label">
+                                        <label for="beheerskosten">Beheerskosten belegging</label>
+                                        <a href="#" class="btn-help" title="show/hide help for this value"><span class="glyphicon glyphicon-question-sign"></span></a>
+                                        <div class="input-group">
+                                            <input id="beheerskosten" type="text" class="form-control percent" value="1">
+                                            <span class="input-group-addon">%</span>
+                                        </div>
+                                    </div>
+                                    <div class="help-text"><small id="passwordHelpBlock" class="form-text">
+                                        De beheerskosten van de beleggingen.
+                                    </small></div>
+                                    
+                                </div>
+
+                            </fieldset>
+
+                            <fieldset>
+
+                                <legend>
+                                    <a href="#" class="btn-advanced-options" title="show/hide advanced options"><span class="glyphicon glyphicon-chevron-right"></span></a>
+                                    Huur parameters
+                                </legend>
+
+                                <div class="form-group">
+                                    <label for="huidige_huur" class="control-label">Huidige huur</label>
+                                    <a href="#" class="btn-help" title="show/hide help for this value"><span class="glyphicon glyphicon-question-sign"></span></a>
+                                    <div class="input-group">
+                                        <span class="input-group-addon">€</span>
+                                        <input id="huidige_huur" type="text" class="form-control currency">
+                                    </div>
+                                    <div class="help-text"><small id="passwordHelpBlock" class="form-text">
+                                        De huur die momenteel betaald wordt voor een gelijkaardige woning.
+                                    </small></div>
+                                </div>
+
+                                <div class="advanced-options">
+                                    
+                                    <div class="form-group">
+                                        <label for="marge_simulatie" class="control-label">Marge simulatie</label>
+                                    <a href="#" class="btn-help" title="show/hide help for this value"><span class="glyphicon glyphicon-question-sign"></span></a>
+                                        <div class="input-group">
+                                            <input id="marge_simulatie" type="text" class="form-control percent" value="1">
+                                            <span class="input-group-addon">%</span>
+                                        </div>
+                                    </div>
+                                    <div class="help-text"><small id="passwordHelpBlock" class="form-text">
+                                        De afwijkingsmarge van de simulator bij het zoeken naar een huurprijs die even voordelig zou zijn als de aankoop van de woning.
+                                    </small></div>
+                                    
+                                </div>
+
+                            </fieldset>
+
+                            <br>
+                            
+                            <div class="form-group">
+                                
+                                <button id="simulate" type="button" class="btn btn-primary">Simuleer</button>
+                                
+                            </div>
+
+                        </form>
+                        
+                    </div>
+                    
+                </div>
+            
+                <div class="col-xs-12 col-sm-4">
+
+                    <div class="well bs-component">
+
+                        <form id="aankoop">
+
+                            <h1 class="page-header">Aankoop woning</h1>
+
+                            <fieldset>
+
+                                <legend>
+                                    <a href="#" class="btn-advanced-options" title="show/hide advanced options"><span class="glyphicon glyphicon-chevron-right"></span></a>
+                                    Aanschafkosten
+                                </legend>
+
+                                <div class="advanced-options">
+                                    
+                                    <div class="form-group">
+                                        <label for="registratierecht_aanschaf" class="control-label">Registratierecht</label>
+                                        <a href="#" class="btn-help" title="show/hide help for this value"><span class="glyphicon glyphicon-question-sign"></span></a>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">€</span>
+                                            <input id="registratierecht_aanschaf" type="text" class="form-control currency" readonly>
+                                        </div>
+                                        <div class="help-text"><small id="passwordHelpBlock" class="form-text">
+                                             Bron: <a href="http://belastingen.vlaanderen.be/gewoon-abattement">http://belastingen.vlaanderen.be/gewoon-abattement</a>
+                                        </small></div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="registratierecht_perc_aanschaf" class="control-label">Registratierecht %</label>
+                                        <a href="#" class="btn-help" title="show/hide help for this value"><span class="glyphicon glyphicon-question-sign"></span></a>
+                                        <div class="input-group">
+                                            <input id="registratierecht_perc_aanschaf" type="text" class="form-control percent" readonly>
+                                            <span class="input-group-addon">%</span>
+                                        </div>
+                                        <div class="help-text"><small id="passwordHelpBlock" class="form-text">
+                                             Bron: <a href="http://www.hoeveelkostmijnhuis.be/extra-kosten/aanschafkosten">http://www.hoeveelkostmijnhuis.be/extra-kosten/aanschafkosten</a>
+                                        </small></div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="registratierecht_abattement_aanschaf" class="control-label">Registratierecht abattement</label>
+                                        <a href="#" class="btn-help" title="show/hide help for this value"><span class="glyphicon glyphicon-question-sign"></span></a>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">€</span>
+                                            <input id="registratierecht_abattement_aanschaf" type="text" class="form-control currency" readonly>
+                                        </div>
+                                        <div class="help-text"><small id="passwordHelpBlock" class="form-text">
+                                             Bron: <a href="http://www.hoeveelkostmijnhuis.be/extra-kosten/aanschafkosten">http://www.hoeveelkostmijnhuis.be/extra-kosten/aanschafkosten</a>
+                                        </small></div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="registratierecht_bijabattement_aanschaf" class="control-label">Registratierecht bij-abattement</label>
+                                        <a href="#" class="btn-help" title="show/hide help for this value"><span class="glyphicon glyphicon-question-sign"></span></a>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">€</span>
+                                            <input id="registratierecht_bijabattement_aanschaf" type="text" class="form-control currency" readonly>
+                                        </div>
+                                        <div class="help-text"><small id="passwordHelpBlock" class="form-text">
+                                             Bron: <a href="http://www.hoeveelkostmijnhuis.be/extra-kosten/aanschafkosten">http://www.hoeveelkostmijnhuis.be/extra-kosten/aanschafkosten</a>
+                                        </small></div>
+                                    </div>
+
+
+
+                                    <div class="form-group">
+                                        <label for="ereloon_aanschaf" class="control-label">Ereloon notaris</label>
+                                        <a href="#" class="btn-help" title="show/hide help for this value"><span class="glyphicon glyphicon-question-sign"></span></a>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">€</span>
+                                            <input id="ereloon_aanschaf" type="text" class="form-control currency" readonly>
+                                        </div>
+                                        <div class="help-text"><small id="passwordHelpBlock" class="form-text">
+                                             Bron: 
+                                            <br>
+                                            <a href="http://www.boekhouder.be/faq/942-hoeveel-bedragen-de-notariskosten-bij-de-aankoop-van-een-woning.html">http://www.boekhouder.be/faq/942-hoeveel-bedragen-de-notariskosten-bij-de-aankoop-van-een-woning.html</a>
+                                            <a href="https://www.notaris.be/verkopen-kopen-huren-lenen/kopen-en-verkopen/kosten-bij-verkoop-uit-de-hand">https://www.notaris.be/verkopen-kopen-huren-lenen/kopen-en-verkopen/kosten-bij-verkoop-uit-de-hand</a>
+                                        </small></div>
+                                    </div>
+
+
+
+                                    <div class="form-group">
+                                        <label for="aktekosten" class="control-label">Aktekosten</label>
+                                        <a href="#" class="btn-help" title="show/hide help for this value"><span class="glyphicon glyphicon-question-sign"></span></a>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">€</span>
+                                            <input id="aktekosten" type="text" class="form-control currency" readonly>
+                                        </div>
+                                        <div class="help-text"><small id="passwordHelpBlock" class="form-text">
+                                             Bron: <a href="http://belastingen.vlaanderen.be/gewoon-abattement">http://belastingen.vlaanderen.be/gewoon-abattement</a>
+                                        </small></div>
+                                    </div>
+
+
+
+                                    <div class="form-group">
+                                        <label for="overschrijving" class="control-label">Kosten overschrijving</label>
+                                        <a href="#" class="btn-help" title="show/hide help for this value"><span class="glyphicon glyphicon-question-sign"></span></a>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">€</span>
+                                            <input id="overschrijving" type="text" class="form-control currency" readonly>
+                                        </div>
+                                        <div class="help-text"><small id="passwordHelpBlock" class="form-text">
+                                             Bron: <a href="http://belastingen.vlaanderen.be/gewoon-abattement">http://belastingen.vlaanderen.be/gewoon-abattement</a>
+                                        </small></div>
+                                    </div>
+                                    
+                                </div>
+
+
+
+                                <div class="form-group">
+                                    <label for="aanschafkost" class="control-label">Totale aanschafkost</label>
+                                    <a href="#" class="btn-help" title="show/hide help for this value"><span class="glyphicon glyphicon-question-sign"></span></a>
+                                    <div class="input-group">
+                                        <span class="input-group-addon">€</span>
+                                        <input id="aanschafkost" type="text" class="form-control currency" readonly>
+                                    </div>
+                                    <div class="help-text"><small id="passwordHelpBlock" class="form-text">
+                                         De totale kost voor de aanschaf van de woning.
+                                    </small></div>
+                                </div>
+
+                            </fieldset>
+
+                            <fieldset>
+
+                                <legend>
+                                    <a href="#" class="btn-advanced-options" title="show/hide advanced options"><span class="glyphicon glyphicon-chevron-right"></span></a>
+                                    Aktekosten lening
+                                </legend>
+
+                                <div class="advanced-options">
+                                    
+                                    <div class="form-group">
+                                        <label for="aanhorigheden" class="control-label">Aanhorigheden</label>
+                                        <a href="#" class="btn-help" title="show/hide help for this value"><span class="glyphicon glyphicon-question-sign"></span></a>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">€</span>
+                                            <input id="aanhorigheden" type="text" class="form-control currency" readonly>
+                                        </div>
+                                        <div class="help-text"><small id="passwordHelpBlock" class="form-text">
+                                             Bron: <a href="http://www.triview.be/lexicon/lexicon_nl/wkp_aanhorigheden.htm">http://www.triview.be/lexicon/lexicon_nl/wkp_aanhorigheden.htm</a>
+                                        </small></div>
+                                    </div>
+
+
+
+                                    <div class="form-group">
+                                        <label for="registratierecht_lening" class="control-label">Registratierecht</label>
+                                        <a href="#" class="btn-help" title="show/hide help for this value"><span class="glyphicon glyphicon-question-sign"></span></a>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">€</span>
+                                            <input id="registratierecht_lening" type="text" class="form-control currency" readonly>
+                                        </div>
+                                        <div class="help-text"><small id="passwordHelpBlock" class="form-text">
+                                             Bron: <a href="http://www.hoeveelkostmijnhuis.be/extra-kosten/aktekosten-lening">http://www.hoeveelkostmijnhuis.be/extra-kosten/aktekosten-lening</a>
+                                        </small></div>
+                                    </div>
+
+
+
+                                    <div class="form-group">
+                                        <label for="inschrijvingsrecht" class="control-label">Inschrijvingsrecht</label>
+                                        <a href="#" class="btn-help" title="show/hide help for this value"><span class="glyphicon glyphicon-question-sign"></span></a>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">€</span>
+                                            <input id="inschrijvingsrecht" type="text" class="form-control currency" readonly>
+                                        </div>
+                                        <div class="help-text"><small id="passwordHelpBlock" class="form-text">
+                                             Bron: <a href="http://www.hoeveelkostmijnhuis.be/extra-kosten/aktekosten-lening">http://www.hoeveelkostmijnhuis.be/extra-kosten/aktekosten-lening</a>
+                                        </small></div>
+                                    </div>
+
+
+
+                                    <div class="form-group">
+                                        <label for="ereloon_krediet" class="control-label">Ereloon notaris</label>
+                                        <a href="#" class="btn-help" title="show/hide help for this value"><span class="glyphicon glyphicon-question-sign"></span></a>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">€</span>
+                                            <input id="ereloon_krediet" type="text" class="form-control currency" readonly>
+                                        </div>
+                                        <div class="help-text"><small id="passwordHelpBlock" class="form-text">
+                                             Bron: <a href="https://www.notaris.be/verkopen-kopen-huren-lenen/kopen-en-verkopen/kosten-bij-verkoop-uit-de-hand">https://www.notaris.be/verkopen-kopen-huren-lenen/kopen-en-verkopen/kosten-bij-verkoop-uit-de-hand</a>
+                                        </small></div>
+                                    </div>
+
+
+
+                                    <div class="form-group">
+                                        <label for="hypotheekbewaarder" class="control-label">Kosten hypotheekbewaarder</label>
+                                        <a href="#" class="btn-help" title="show/hide help for this value"><span class="glyphicon glyphicon-question-sign"></span></a>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">€</span>
+                                            <input id="hypotheekbewaarder" type="text" class="form-control currency" readonly>
+                                        </div>
+                                        <div class="help-text"><small id="passwordHelpBlock" class="form-text">
+                                            Least squares formule reversed https://www.notaris.be/rekenmodules/kredieten/source
+                                            <br>
+                                            Bron: <a href="https://www.notaris.be/rekenmodules/kredieten/source">https://www.notaris.be/rekenmodules/kredieten/source</a>
+                                        </small></div>
+                                    </div>
+
+
+
+                                    <div class="form-group">
+                                        <label for="diversen" class="control-label">Diverse kosten notaris</label>
+                                        <a href="#" class="btn-help" title="show/hide help for this value"><span class="glyphicon glyphicon-question-sign"></span></a>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">€</span>
+                                            <input id="diversen" type="text" class="form-control currency" readonly>
+                                        </div>
+                                        <div class="help-text"><small id="passwordHelpBlock" class="form-text">
+                                             Bron: <a href="https://www.notaris.be/rekenmodules/kredieten/source">https://www.notaris.be/rekenmodules/kredieten/source</a>
+                                        </small></div>
+                                    </div>
+
+
+
+                                    <div class="form-group">
+                                        <label for="aktekosten_krediet" class="control-label">Totale aktekosten lening</label>
+                                        <a href="#" class="btn-help" title="show/hide help for this value"><span class="glyphicon glyphicon-question-sign"></span></a>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">€</span>
+                                            <input id="aktekosten_krediet" type="text" class="form-control currency" readonly>
+                                        </div>
+                                        <div class="help-text"><small id="passwordHelpBlock" class="form-text">
+                                             Totaal van de bijkomende kosten bij het aangaan van een lening.
+                                        </small></div>
+                                    </div>
+
+
+
+                                    <div class="form-group">
+                                        <label for="leningkost" class="control-label">Totale kost lening</label>
+                                        <a href="#" class="btn-help" title="show/hide help for this value"><span class="glyphicon glyphicon-question-sign"></span></a>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">€</span>
+                                            <input id="leningkost" type="text" class="form-control currency" readonly>
+                                        </div>
+                                        <div class="help-text"><small id="passwordHelpBlock" class="form-text">
+                                             Totale kost bij het aangaan van een lening.
+                                        </small></div>
+                                    </div>
+                                    
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="te_lenen" class="control-label">Te lenen kapitaal</label>
+                                    <a href="#" class="btn-help" title="show/hide help for this value"><span class="glyphicon glyphicon-question-sign"></span></a>
+                                    <div class="input-group">
+                                        <span class="input-group-addon">€</span>
+                                        <input id="te_lenen" type="text" class="form-control currency" readonly>
+                                    </div>
+                                    <div class="help-text"><small id="passwordHelpBlock" class="form-text">
+                                         Totaal te lenen kapitaal (totale kost verminderd met eigen inbreng).
+                                    </small></div>
+                                </div>
+
+                            </fieldset>
+
+                            <fieldset>
+
+                                <legend>
+                                    <a href="#" class="btn-advanced-options" title="show/hide advanced options"><span class="glyphicon glyphicon-chevron-right"></span></a>
+                                    Fiscaliteit lening
+                                </legend>
+
+                                <div class="form-group">
+                                    <label for="afbetaling" class="control-label">Maandelijkse afbetaling</label>
+                                    <a href="#" class="btn-help" title="show/hide help for this value"><span class="glyphicon glyphicon-question-sign"></span></a>
+                                    <div class="input-group">
+                                        <span class="input-group-addon">€</span>
+                                        <input id="afbetaling" type="text" class="form-control currency" readonly>
+                                    </div>
+                                    <div class="help-text"><small id="passwordHelpBlock" class="form-text">
+                                         Maandelijks af te betalen bedrag.
+                                    </small></div>
+                                </div>
+
+
+
+                                <div class="form-group">
+                                    <label for="totale_interest" class="control-label">Totale interesten</label>
+                                    <a href="#" class="btn-help" title="show/hide help for this value"><span class="glyphicon glyphicon-question-sign"></span></a>
+                                    <div class="input-group">
+                                        <span class="input-group-addon">€</span>
+                                        <input id="totale_interest" type="text" class="form-control currency" readonly>
+                                    </div>
+                                    <div class="help-text"><small id="passwordHelpBlock" class="form-text">
+                                         Totale bedrag dat over de looptijd van de lening aan interest betaald zal zijn.
+                                    </small></div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="belastingsvoordeel" class="control-label">Belastingsvoordeel</label>
+                                    <a href="#" class="btn-help" title="show/hide help for this value"><span class="glyphicon glyphicon-question-sign"></span></a>
+                                    <div class="input-group">
+                                        <span class="input-group-addon">€</span>
+                                        <input id="belastingsvoordeel" type="text" class="form-control currency" readonly>
+                                    </div>
+                                    <div class="help-text"><small id="passwordHelpBlock" class="form-text">
+                                         Totaal bedrag dat als belastingsvoordeel tgv de woonbonus op het einde van de looptijd gerecupereerd zal zijn.
+                                    </small></div>
+                                </div>
+
+                            </fieldset>
+
+                            <fieldset>
+
+                                <legend>
+                                    <a href="#" class="btn-advanced-options" title="show/hide advanced options"><span class="glyphicon glyphicon-chevron-right"></span></a>
+                                    Onroerende voorheffing
+                                </legend>
+
+                                <div class="advanced-options">
+                                    
+                                    <div class="form-group">
+                                        <label for="kadastraal" class="control-label">Kadastraal inkomen</label>
+                                        <a href="#" class="btn-help" title="show/hide help for this value"><span class="glyphicon glyphicon-question-sign"></span></a>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">€</span>
+                                            <input id="kadastraal" type="text" class="form-control currency" readonly>
+                                        </div>
+                                        <div class="help-text"><small id="passwordHelpBlock" class="form-text">
+                                             Het bedrag waarmee het inkomen verhoogd wordt en waar belasting op gehoffen wordt.
+                                        </small></div>
+                                    </div>
+                                    
+                                </div>
+
+
+
+                                <div class="form-group">
+                                    <label for="totaal_onroerend" class="control-label">Totaal onroerende voorheffing </label>
+                                    <a href="#" class="btn-help" title="show/hide help for this value"><span class="glyphicon glyphicon-question-sign"></span></a>
+                                    <div class="input-group">
+                                        <span class="input-group-addon">€</span>
+                                        <input id="totaal_onroerend" type="text" class="form-control currency" readonly>
+                                    </div>
+                                    <div class="help-text"><small id="passwordHelpBlock" class="form-text">
+                                         Totaal bedrag dat aan onroerende voorheffing betaald zal zijn op het einde van de looptijd.
+                                    </small></div>
+                                </div>
+
+                            </fieldset>
+
+                            <fieldset>
+
+                                <legend>
+                                    <a href="#" class="btn-advanced-options" title="show/hide advanced options"><span class="glyphicon glyphicon-chevron-right"></span></a>
+                                    Eindkapitaal
+                                </legend>
+
+                                <div class="advanced-options">
+                                    
+                                    <div class="form-group">
+                                        <label for="woningwaarde" class="control-label">Waarde woning na afbetaling</label>
+                                        <a href="#" class="btn-help" title="show/hide help for this value"><span class="glyphicon glyphicon-question-sign"></span></a>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">€</span>
+                                            <input id="woningwaarde" type="text" class="form-control currency" readonly>
+                                        </div>
+                                        <div class="help-text"><small id="passwordHelpBlock" class="form-text">
+                                             De waarde van de woning na de looptijd van de lening.
+                                        </small></div>
+                                    </div>
+                                    
+                                </div>
+
+
+
+                                <div class="form-group">
+                                    <label for="totaal_kapitaal" class="control-label">Totaal kapitaal na afbetaling</label>
+                                    <a href="#" class="btn-help" title="show/hide help for this value"><span class="glyphicon glyphicon-question-sign"></span></a>
+                                    <div class="input-group">
+                                        <span class="input-group-addon">€</span>
+                                        <input id="totaal_kapitaal" type="text" class="form-control currency" readonly>
+                                    </div>
+                                    <div class="help-text"><small id="passwordHelpBlock" class="form-text">
+                                         Totaal kapitaal (vastgoed + belastingsvoordeel) op het einde van de looptijd.
+                                    </small></div>
+                                </div>
+
+                            </fieldset>
+
+                        </form>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-xs-12 col-sm-4">
+
+                    <div class="well bs-component">
+
+                        <form id="huren">
+
+                            <h1 class="page-header">Huren woning</h1>
+
+                            <fieldset>
+
+                                <legend>
+                                    <a href="#" class="btn-advanced-options" title="show/hide advanced options"><span class="glyphicon glyphicon-chevron-right"></span></a>
+                                    Eindkapitaal huidige huur
+                                </legend>
+
+                                <div class="form-group">
+                                    <label for="eindkapitaal_huidige_huur" class="control-label">Eindkapitaal</label>
+                                    <a href="#" class="btn-help" title="show/hide help for this value"><span class="glyphicon glyphicon-question-sign"></span></a>
+                                    <div class="input-group">
+                                        <span class="input-group-addon">€</span>
+                                        <input id="eindkapitaal_huidige_huur" type="text" class="form-control" readonly>
+                                    </div>
+                                    <div class="help-text"><small id="passwordHelpBlock" class="form-text">
+                                        Totaal bedrag dat belegd en waar marktwinst op ontvangen zal zijn op het einde van de looptijd. Er wordt verondersteld dat elke maand
+                                        het verschil tussen de normaal geziene afbetalingssom en de huurprijs volledig belegd wordt.
+                                    </small></div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="verloren_kapitaal_huidige_huur" class="control-label">Huidige waarde verloren kapitaal</label>
+                                    <a href="#" class="btn-help" title="show/hide help for this value"><span class="glyphicon glyphicon-question-sign"></span></a>
+                                    <div class="input-group">
+                                        <span class="input-group-addon">€</span>
+                                        <input id="verloren_kapitaal_huidige_huur" type="text" class="form-control" readonly>
+                                    </div>
+                                    <div class="help-text"><small id="passwordHelpBlock" class="form-text">
+                                         Het verschil tussen het totaal kapitaal bij aankoop en het belegd kapitaal bij huren van een woning.
+                                    </small></div>
+                                </div>
+
+                            </fieldset>
+
+                            <fieldset>
+
+                                <legend>
+                                    <a href="#" class="btn-advanced-options" title="show/hide advanced options"><span class="glyphicon glyphicon-chevron-right"></span></a>
+                                    Break even huur
+                                </legend>
+
+                                <div class="form-group">
+                                    <label for="breakeven_huur" class="control-label">Huurbedrag</label>
+                                    <a href="#" class="btn-help" title="show/hide help for this value"><span class="glyphicon glyphicon-question-sign"></span></a>
+                                    <div class="input-group">
+                                        <span class="input-group-addon">€</span>
+                                        <input id="breakeven_huur" type="text" class="form-control" readonly>
+                                    </div>
+                                    <div class="help-text"><small id="passwordHelpBlock" class="form-text">
+                                        Het bedrag waaraan gehuurd moet worden om een gelijkwaardig kapitaal op te bouwen als bij het kopen van een woning. Er wordt verondersteld dat
+                                        dit bedrag groeit met de index (inflatie).
+                                    </small></div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="eindkapitaal_huur" class="control-label">Eindkapitaal</label>
+                                    <a href="#" class="btn-help" title="show/hide help for this value"><span class="glyphicon glyphicon-question-sign"></span></a>
+                                    <div class="input-group">
+                                        <span class="input-group-addon">€</span>
+                                        <input id="eindkapitaal_huur" type="text" class="form-control" readonly>
+                                    </div>
+                                    <div class="help-text"><small id="passwordHelpBlock" class="form-text">
+                                         Het totaal bedrag dat belegd is en waar marktwinst op ontvangen zal zijn bij het huren aan de break-even huur op het einde van looptijd.
+                                    </small></div>
+                                </div>
+
+                            </fieldset>
+
+                        </form>
+
+                    </div>
+
+                </div>
+                
+            </div>
+            
+        </div>
+  
+    </body>
+</html>
