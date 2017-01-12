@@ -4,6 +4,8 @@ $( function() {
     
     function on_input() {
         
+        $( '.loader' ).fadeIn( 300 );
+        
         if ( input_change_timer )
             clearTimeout( input_change_timer );
         
@@ -137,7 +139,11 @@ $( function() {
         if ( errors )
             return;
         
-        return simulate( aankoopprijs, beschrijf, locatie, enige_woning, huurwaarde, groei_woning, interest, looptijd, eigen_inbreng, ssv, inflatie, marktgroei, instapkosten, beheerskosten, gemeentetax, huidige_huur, marge_simulatie );
+        simulate( aankoopprijs, beschrijf, locatie, enige_woning, huurwaarde, groei_woning, interest, looptijd, eigen_inbreng, ssv, inflatie, marktgroei, instapkosten, beheerskosten, gemeentetax, huidige_huur, marge_simulatie );
+        
+        $( '.loader' ).fadeOut( 300 );
+        
+        return;
         
     }
     
