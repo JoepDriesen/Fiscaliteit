@@ -16,6 +16,14 @@ $( function() {
         var beschrijf = $( "#beschrijf" ).val();
         var locatie = $( "#locatie" ).val();
         var enige_woning = $( "#enige_woning" ).val();
+        var huurwaarde = $( "#huurwaarde" ).val();
+        if ( isNaN( huurwaarde ) ) {
+            
+            set_error( $( "#huurwaarde" ) );
+            errors = true;
+            
+        } else
+            clear_error( $( "#huurwaarde" ) );
         var groei_woning = parseFloat( $( "#groei_woning" ).val() ) / 100;
         if ( isNaN( groei_woning ) ) {
             
@@ -301,6 +309,16 @@ function simulate( aankoopprijs, beschrijf, locatie, enige_woning, groei_woning,
     }
 
     $( "#belastingsvoordeel" ).val( belastingsvoordeel.formatMoney() );
+    
+    
+    
+    var kadastraal_inkomen = huurwaarde * 0.4;
+    
+    $( "#kadastraal" ).val( kadastraal_inkomen.formatMoney() );
+    
+    var totaal_onroerende_voorheffing = FV( marktgroei / 12, looptijd * 12, 0, -kadastraal_inkomen, 1 );
+    
+    $( "#totaal_onroerend" ).val( totaal_onroerende_voorheffing.formatMoney() );
 
 
 
@@ -309,7 +327,7 @@ function simulate( aankoopprijs, beschrijf, locatie, enige_woning, groei_woning,
     $( "#woningwaarde" ).val( eindwaarde_woning.formatMoney() );
 
 
-    var totaal_kapitaal = eindwaarde_woning + belastingsvoordeel;
+    var totaal_kapitaal = eindwaarde_woning + belastingsvoordeel - totaal_onroerende_voorheffing;
 
     $( "#totaal_kapitaal" ).val( totaal_kapitaal.formatMoney() );
 
