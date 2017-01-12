@@ -12,7 +12,7 @@ $( function() {
         
     };
     
-    $( '#input input' ).keyUp( on_input );
+    $( '#input input' ).keyup( on_input );
     $( '#input select' ).change( on_input );
     
     function simulate_input() {
