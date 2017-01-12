@@ -16,7 +16,7 @@ $( function() {
         var beschrijf = $( "#beschrijf" ).val();
         var locatie = $( "#locatie" ).val();
         var enige_woning = $( "#enige_woning" ).val();
-        var huurwaarde = $( "#huurwaarde" ).val();
+        var huurwaarde = parseFloat( $( "#huurwaarde" ).val() );
         if ( isNaN( huurwaarde ) ) {
             
             set_error( $( "#huurwaarde" ) );
