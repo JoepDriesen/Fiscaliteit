@@ -120,7 +120,7 @@ $( function() {
         if ( errors )
             return;
         
-        return simulate( aankoopprijs, beschrijf, locatie, enige_woning, groei_woning, interest, looptijd, eigen_inbreng, ssv, inflatie, marktgroei, instapkosten, beheerskosten, gemeentetax, huidige_huur, marge_simulatie );
+        return simulate( aankoopprijs, beschrijf, locatie, enige_woning, huurwaarde, groei_woning, interest, looptijd, eigen_inbreng, ssv, inflatie, marktgroei, instapkosten, beheerskosten, gemeentetax, huidige_huur, marge_simulatie );
         
     } );
     
@@ -128,7 +128,7 @@ $( function() {
 
 
 
-function simulate( aankoopprijs, beschrijf, locatie, enige_woning, groei_woning, interest, looptijd, eigen_inbreng, ssv, inflatie, marktgroei, instapkosten, beheerskosten, gemeentetax, huidige_huur, marge_simulatie ) {
+function simulate( aankoopprijs, beschrijf, locatie, enige_woning, huurwaarde, groei_woning, interest, looptijd, eigen_inbreng, ssv, inflatie, marktgroei, instapkosten, beheerskosten, gemeentetax, huidige_huur, marge_simulatie ) {
         
     var registratierecht_percentage = registratierecht_percentages[beschrijf][locatie];
     $( "#registratierecht_perc_aanschaf" ).val( registratierecht_percentage * 100 );
