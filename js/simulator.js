@@ -1,6 +1,20 @@
 $( function() {
     
-    $( "#simulate" ).click( function() {
+    var input_change_timer;
+    
+    $( '#input input' ).change( function() {
+        
+        if ( input_change_timer )
+            clearTimeout( input_change_timer );
+        
+        input_change_timer = setTimeout( simulate_input, 3000 );
+        console.log('change');
+        
+    } );
+    
+    function simulate_input() {
+        
+        console.log( 'simulate' );
         
         var errors = false;
         
