@@ -136,7 +136,7 @@ $( function() {
         
         return simulate( aankoopprijs, beschrijf, locatie, enige_woning, huurwaarde, groei_woning, interest, looptijd, eigen_inbreng, ssv, inflatie, marktgroei, instapkosten, beheerskosten, gemeentetax, huidige_huur, marge_simulatie );
         
-    } );
+    }
     
 } );
 
