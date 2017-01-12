@@ -2,7 +2,7 @@ $( function() {
     
     var input_change_timer;
     
-    $( '#input input' ).change( function() {
+    function on_input() {
         
         if ( input_change_timer )
             clearTimeout( input_change_timer );
@@ -10,7 +10,10 @@ $( function() {
         input_change_timer = setTimeout( simulate_input, 3000 );
         console.log('change');
         
-    } );
+    };
+    
+    $( '#input input' ).keyUp( on_input );
+    $( '#input select' ).change( on_input );
     
     function simulate_input() {
         
