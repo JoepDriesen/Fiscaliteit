@@ -7,7 +7,7 @@ $( function() {
         if ( input_change_timer )
             clearTimeout( input_change_timer );
         
-        input_change_timer = setTimeout( simulate_input, 3000 );
+        input_change_timer = setTimeout( simulate_input, 1000 );
         console.log('change');
         
     };
@@ -450,14 +450,14 @@ function FV( rate, num_periods, payments, principal, type ) {
 
 function set_error( $input ) {
     
-    $input.parent().parent().addClass( 'has-error' );
-    $input.addClass( 'form-control-error' );
+    $input.parent().parent().addClass( 'has-warning' );
+    $input.addClass( 'form-control-warning' );
     
 }
 
 function clear_error( $input ) {
     
-    $input.parent().parent().removeClass( 'has-error' );
-    $input.removeClass( 'form-control-error' );
+    $input.parent().parent().removeClass( 'has-warning' );
+    $input.removeClass( 'form-control-warning' );
     
 }
