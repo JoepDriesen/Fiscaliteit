@@ -316,7 +316,7 @@ function simulate( aankoopprijs, beschrijf, locatie, enige_woning, huurwaarde, g
     
     $( "#kadastraal" ).val( kadastraal_inkomen.formatMoney() );
     
-    var totaal_onroerende_voorheffing = FV( marktgroei / 12, looptijd * 12, 0, -kadastraal_inkomen, 1 );
+    var totaal_onroerende_voorheffing = -FV( marktgroei / 12, looptijd * 12, 0, kadastraal_inkomen, 1 );
     
     $( "#totaal_onroerend" ).val( totaal_onroerende_voorheffing.formatMoney() );
 
